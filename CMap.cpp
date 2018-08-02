@@ -76,33 +76,33 @@ void CMap::add_unit(int type, int x, int y) {
     switch(type) {
         case 1:
             this->enemyCounter++;
-            this->enemy_list.insert({ -this->enemyCounter, new CDrone(type, x, y, *this)});
+            this->enemy_list.insert(std::make_pair( -this->enemyCounter, new CDrone(type, x, y, *this)));
             this->grid[y][x] = -enemyCounter;
             break;
         case 2:
             this->enemyCounter++;
-            this->enemy_list.insert({ -this->enemyCounter, new CDreadnought(type, x, y, *this)});
+            this->enemy_list.insert(std::make_pair( -this->enemyCounter, new CDreadnought(type, x, y, *this)));
             this->grid[y][x] = -enemyCounter;
             break;
         case 3:
             this->enemyCounter++;
-            this->enemy_list.insert({ -this->enemyCounter, new CCommandUnit(type, x, y, *this)});
+            this->enemy_list.insert(std::make_pair( -this->enemyCounter, new CCommandUnit(type, x, y, *this)));
             this->grid[y][x] = -enemyCounter;
             this->commandU_counter++;
             break;
         case 4 :
             this->unitCounter++;
-            this->unit_list.insert({ this->unitCounter, new CGrunt(type, x, y, *this)});
+            this->unit_list.insert(std::make_pair( this->unitCounter, new CGrunt(type, x, y, *this)));
             this->grid[y][x] = unitCounter;
             break;
         case 5 :
             this->unitCounter++;
-            this->unit_list.insert({ this->unitCounter, new CJumpship(type, x, y, *this)});
+            this->unit_list.insert(std::make_pair( this->unitCounter, new CJumpship(type, x, y, *this)));
             this->grid[y][x] = unitCounter;
             break;
         case 6 :
             this->unitCounter++;
-            this->unit_list.insert({ this->unitCounter, new CTank(type, x, y, *this)});
+            this->unit_list.insert(std::make_pair( this->unitCounter, new CTank(type, x, y, *this)));
             this->grid[y][x] = unitCounter;
             break;
         default:

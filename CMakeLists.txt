@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.2)
 project(LaserChess3D)
 
 set(CMAKE_CXX_STANDARD 11)
@@ -30,6 +30,7 @@ include_directories(
         external/glm-0.9.7.1/
         external/glew-1.13.0/include/
         external/assimp-3.3.1/include/
+        external/soil/src/
         .)
 
 
@@ -70,4 +71,4 @@ add_executable(LaserChess3D
 
 
 
-target_link_libraries(LaserChess3D ${ALL_LIBS} assimp libSOIL.a)
+target_link_libraries(LaserChess3D ${ALL_LIBS} assimp C:/Users/st00x/CLionProjects/LaserChess3D3/external/soil/lib/SOIL.lib)

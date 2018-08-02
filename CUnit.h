@@ -6,7 +6,9 @@
 #ifndef LASERCHESS_CUNIT_H
 #define LASERCHESS_CUNIT_H
 
-
+#include <algorithm>
+#include <functional>
+#include <cmath>
 #include "CMap.h"
 
 

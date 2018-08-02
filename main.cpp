@@ -17,17 +17,19 @@
 
 // Include GLEW
 #include <GL/glew.h>
+//#include <external/glew-1.13.0/include/GL/glew.h>
 
 // Include GLFW
-#include <GLFW/glfw3.h>
-
+//#include <GLFW/glfw3.h>
+#include <external/glfw-3.1.2/include/GLFW/glfw3.h>
 
 // Include GLM
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
 // texture loading
-#include "SOIL.h"
+//#include "SOIL.h"
+#include "external/soil/src/SOIL.h"
 
 #include "common/Shader.h"
 #include "common/objloader.hpp"
@@ -41,7 +43,7 @@
 #include "CMap.h"
 #include "CGame.h"
 
-#include <GL/glxew.h> //for vsync
+//#include <GL/glxew.h> //for vsync
 
 
 CMap* generate_map(int level);
@@ -93,12 +95,12 @@ int main()
     }
 
     //activating vsync on linux
-    Display *dpy = glXGetCurrentDisplay();
-    GLXDrawable drawable = glXGetCurrentDrawable();
-    const int interval = 1;
-    if (drawable) {
-        glXSwapIntervalEXT(dpy, drawable, interval);
-    }
+    //Display *dpy = glXGetCurrentDisplay();
+    //GLXDrawable drawable = glXGetCurrentDrawable();
+    //const int interval = 1;
+    //if (drawable) {
+    //    glXSwapIntervalEXT(dpy, drawable, interval);
+    //}
 
     // Ensure we can capture the escape key being pressed below
     glfwSetInputMode(context.window, GLFW_STICKY_KEYS, GL_TRUE);
@@ -264,7 +266,7 @@ int main()
     for(int Level = 1; Level <= 3; ++Level) {
         /// game logic:
         CMap* map = generate_map(Level);
-        std::cout << std::endl << "++++++++++++++++++  LEVEL " << Level << "  ++++++++++++++++++" << std::endl;
+        //std::cout << std::endl << "++++++++++++++++++  LEVEL " << Level << "  ++++++++++++++++++" << std::endl;
 
         /// main game loop:
         CGame game(map, &context);
