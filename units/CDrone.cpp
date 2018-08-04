@@ -52,7 +52,7 @@ bool CDrone::do_attack(GLFWwindow* window) {
     if(target4_id != 0 && this->map->get_unit(target4_id)->get_type() > 3) {
         targets.insert(std::make_pair(this->map->get_unit(target4_id)->get_type(),target4_id));
     }
-    if(!target.empty()) {
+    if(!targets.empty()) {
         this->attack(targets.begin()->second);
     }
     targets.clear();

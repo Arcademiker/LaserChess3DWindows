@@ -26,7 +26,7 @@ int CGame::gameloop() {
         ///draw game state
         if((step==4 || step==8) && !(this->old_x == this->U->get_x() && this->old_y == this->U->get_y())) {
             ///move animation phase:
-            for(this->anime = 0; this->anime < 200; ++this->anime) {
+            for(this->anime = 0; this->anime < 20; ++this->anime) {
                 this->drawGame(step);
             }
         } else {
@@ -296,14 +296,14 @@ void CGame::drawGame(int step) {
             ///animate movement:
             if(U.second->get_type() == 5) {
                 this->context->ModelMatrix = glm::translate(glm::mat4(1.0), glm::vec3(
-                        2.0f * this->old_x + ((2.0f * U.second->get_x() - 2.0f * this->old_x) * anime) / 200.0f,
-                        (-(anime-100.0f)*(anime-100.0f)+10000.0f)/5000.f,
-                        2.0f * this->old_y + ((2.0f * U.second->get_y() - 2.0f * this->old_y) * anime) / 200.0f));
+                        2.0f * this->old_x + ((2.0f * U.second->get_x() - 2.0f * this->old_x) * anime) / 20.0f,
+                        (-(anime-10.0f)*(anime-10.0f)+100.0f)/50.f,
+                        2.0f * this->old_y + ((2.0f * U.second->get_y() - 2.0f * this->old_y) * anime) / 20.0f));
             } else {
                 this->context->ModelMatrix = glm::translate(glm::mat4(1.0), glm::vec3(
-                        2.0f * this->old_x + ((2.0f * U.second->get_x() - 2.0f * this->old_x) * anime) / 200.0f,
+                        2.0f * this->old_x + ((2.0f * U.second->get_x() - 2.0f * this->old_x) * anime) / 20.0f,
                         0,
-                        2.0f * this->old_y + ((2.0f * U.second->get_y() - 2.0f * this->old_y) * anime) / 200.0f));
+                        2.0f * this->old_y + ((2.0f * U.second->get_y() - 2.0f * this->old_y) * anime) / 20.0f));
                 //this->context->ModelMatrix = glm::translate(glm::mat4(1.0), glm::vec3(2*U.second->get_x(), 0, 2*U.second->get_y()));//glm::mat4(1.0);
             }
         } else {
@@ -359,14 +359,14 @@ void CGame::drawGame(int step) {
                     ///animate movement:
                     if(U.second->get_type() == 5) {
                         this->context->ModelMatrix = glm::translate(glm::mat4(1.0), glm::vec3(
-                                2.0f * this->old_x + ((2.0f * U.second->get_x() - 2.0f * this->old_x) * anime) / 200.0f + 0.2f,
-                                (-(anime-100.0f)*(anime-100.0f)+10000.0f)/5000.0f + 1.0f+k*0.08f+high,
-                                2.0f * this->old_y + ((2.0f * U.second->get_y() - 2.0f * this->old_y) * anime) / 200.0f - 0.4f) );
+                                2.0f * this->old_x + ((2.0f * U.second->get_x() - 2.0f * this->old_x) * anime) / 20.0f + 0.2f,
+                                (-(anime-10.0f)*(anime-00.0f)+100.0f)/50.0f + 1.0f+k*0.08f+high,
+                                2.0f * this->old_y + ((2.0f * U.second->get_y() - 2.0f * this->old_y) * anime) / 20.0f - 0.4f) );
                     } else {
                         this->context->ModelMatrix = glm::translate(glm::mat4(1.0), glm::vec3(
-                                2.0f * this->old_x + ((2.0f * U.second->get_x() - 2.0f * this->old_x) * anime) / 200.0f + 0.2f,
+                                2.0f * this->old_x + ((2.0f * U.second->get_x() - 2.0f * this->old_x) * anime) / 20.0f + 0.2f,
                                 1.0f+k*0.08f+high,
-                                2.0f * this->old_y + ((2.0f * U.second->get_y() - 2.0f * this->old_y) * anime) / 200.0f - 0.4f) );
+                                2.0f * this->old_y + ((2.0f * U.second->get_y() - 2.0f * this->old_y) * anime) / 20.0f - 0.4f) );
                     }
                 } else {
                     this->context->ModelMatrix = glm::translate(glm::mat4(1.0), glm::vec3(2*U.second->get_x() + 0.2, 1.0f+k*0.08f+high, 2*U.second->get_y() - 0.4f));
@@ -414,21 +414,21 @@ void CGame::drawGame(int step) {
             if(E.second->get_type() == 3 ) {
                 if(E.second->get_y() < this->old_y) {
                     this->context->ModelMatrix = glm::rotate(glm::translate(glm::mat4(1.0), glm::vec3(
-                            2.0f * this->old_x + ((2.0f * E.second->get_x() - 2.0f * this->old_x) * anime) / 200.0f,
-                            (-(anime - 100.0f) * (anime - 100.0f) + 10000.0f) / 25000.f,
-                            2.0f * this->old_y + ((2.0f * E.second->get_y() - 2.0f * this->old_y) * anime) / 200.0f)),
+                            2.0f * this->old_x + ((2.0f * E.second->get_x() - 2.0f * this->old_x) * anime) / 20.0f,
+                            (-(anime - 10.0f) * (anime - 10.0f) + 100.0f) / 250.f,
+                            2.0f * this->old_y + ((2.0f * E.second->get_y() - 2.0f * this->old_y) * anime) / 20.0f)),
                                                              anime * -3.14f / 40.0f, glm::vec3(1, 0, 0));
                 } else {
                     this->context->ModelMatrix = glm::rotate(glm::translate(glm::mat4(1.0), glm::vec3(
-                            2.0f * this->old_x + ((2.0f * E.second->get_x() - 2.0f * this->old_x) * anime) / 200.0f,
-                            (-(anime - 100.0f) * (anime - 100.0f) + 10000.0f) / 25000.f,
-                            2.0f * this->old_y + ((2.0f * E.second->get_y() - 2.0f * this->old_y) * anime) / 200.0f)),
+                            2.0f * this->old_x + ((2.0f * E.second->get_x() - 2.0f * this->old_x) * anime) / 20.0f,
+                            (-(anime - 10.0f) * (anime - 10.0f) + 100.0f) / 250.f,
+                            2.0f * this->old_y + ((2.0f * E.second->get_y() - 2.0f * this->old_y) * anime) / 20.0f)),
                                                              anime * 3.14f / 40.0f, glm::vec3(1, 0, 0));
                 }
             } else {
                 this->context->ModelMatrix = glm::rotate(glm::translate(glm::mat4(1.0), glm::vec3(
-                        2.0f * this->old_x + ((2.0f * E.second->get_x() - 2.0f * this->old_x) * anime) / 200.0f, 0,
-                        2.0f * this->old_y + ((2.0f * E.second->get_y() - 2.0f * this->old_y) * anime) / 200.0f)), 3.14f,
+                        2.0f * this->old_x + ((2.0f * E.second->get_x() - 2.0f * this->old_x) * anime) / 20.0f, 0,
+                        2.0f * this->old_y + ((2.0f * E.second->get_y() - 2.0f * this->old_y) * anime) / 20.0f)), 3.14f,
                                                          glm::vec3(0, 1, 0));
             }
         } else {
@@ -480,9 +480,9 @@ void CGame::drawGame(int step) {
                 if(step == 8 && this->E == E.second && !(this->old_x == this->E->get_x() && this->old_y == this->E->get_y())) {
                     ///animate movement:
                     this->context->ModelMatrix = glm::translate(glm::mat4(1.0), glm::vec3(
-                            2.0f * this->old_x + ((2.0f * E.second->get_x() - 2.0f * this->old_x) * anime) / 200.0f - 0.3f,
+                            2.0f * this->old_x + ((2.0f * E.second->get_x() - 2.0f * this->old_x) * anime) / 20.0f - 0.3f,
                             1.0f+k*0.08f+high,
-                            2.0f * this->old_y + ((2.0f * E.second->get_y() - 2.0f * this->old_y) * anime) / 200.0f - 0.3f-wide) );
+                            2.0f * this->old_y + ((2.0f * E.second->get_y() - 2.0f * this->old_y) * anime) / 20.0f - 0.3f-wide) );
 
                 } else {
                     this->context->ModelMatrix = glm::translate(glm::mat4(1.0), glm::vec3(2*E.second->get_x() - 0.3, 1.0f+k*0.08f+high, 2*E.second->get_y() - 0.3f-wide));

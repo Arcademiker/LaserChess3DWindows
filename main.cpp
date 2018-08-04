@@ -44,6 +44,7 @@
 #include "CGame.h"
 
 //#include <GL/glxew.h> //for vsync
+#include <windows.h>  //for vsync
 
 
 CMap* generate_map(int level);
@@ -93,6 +94,17 @@ int main()
         glfwTerminate();
         return -1;
     }
+
+
+#ifdef _WIN32
+	// Turn on vertical screen sync under Windows.
+	// (I.e. it uses the WGL_EXT_swap_control extension)
+	typedef BOOL(WINAPI *PFNWGLSWAPINTERVALEXTPROC)(int interval);
+	PFNWGLSWAPINTERVALEXTPROC wglSwapIntervalEXT = NULL;
+	wglSwapIntervalEXT = (PFNWGLSWAPINTERVALEXTPROC)wglGetProcAddress("wglSwapIntervalEXT");
+	if (wglSwapIntervalEXT)
+		wglSwapIntervalEXT(1);
+#endif
 
     //activating vsync on linux
     //Display *dpy = glXGetCurrentDisplay();
