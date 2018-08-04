@@ -1,6 +1,8 @@
 # LaserChess3D for Windows
 ![laserchess](https://user-images.githubusercontent.com/15786772/43614702-cf3fff8e-96b4-11e8-8b98-b3633cb95fdd.png)
 
+the vc 14 sln and exe files are in the build folder.
+
 ```
 Game Overview:
 The Game has 3 Levels:
