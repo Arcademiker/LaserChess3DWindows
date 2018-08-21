@@ -1,12 +1,3 @@
-/* todo:
-// Projekt Strukturieren
-// Licht + texturen
-// enter skip, right click move choose another
-// Bewegungspfade animieren
-// HP darstellen
-// You win loose text?
-*/
-
 // Include standard headers
 #include <cstdio>
 #include <cstdlib>
