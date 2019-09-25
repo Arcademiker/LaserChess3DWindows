@@ -1,5 +1,4 @@
 # LaserChess3D for Windows
-the vc 14 sln and exe files are in the build folder.
 
 some footage: https://youtu.be/X0fdCJ2tNFU
 
